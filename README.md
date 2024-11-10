@@ -1,20 +1,61 @@
-# Tally App Redux-Inspired Store
+# Tally App with Redux-Inspired Store
 
-This project implements a Redux-inspired store to manage the state of a tally counter app. The store handles actions like `ADD`, `SUBTRACT`, and `RESET` and logs state changes to the console.
+This project implements a simple **Tally App** using a Redux-inspired store to manage the count state. It focuses on state management principles and the **Observer Pattern**, where state changes are logged to the console instead of being displayed in a UI.
 
-## Approach
+## Project Structure
 
-- I created a simple store that holds the count in the state.
-- Actions like "ADD", "SUBTRACT", and "RESET" mutate the state in an immutable way.
-- The `subscribe` method allows us to observe changes to the state by logging it.
+The project is split into three main parts:
 
-## Challenges
+1. **`action.js`** – Defines action types and action creators.
+2. **`reducer.js`** – Contains the logic for updating the state based on dispatched actions.
+3. **`store.js`** – Implements the store that holds the state, dispatches actions, and allows observers to listen for state changes.
+4. **`index.js`** – The main file that demonstrates how the store works by dispatching actions and logging the state.
 
-- The main challenge was ensuring that the state is always updated immutably, which was addressed using the spread operator (`...`) to create new state objects.
+## How the Store Works
 
-## Testing
+- The store holds the state of the app (in this case, the counter value).
+- Actions like `ADD`, `SUBTRACT`, and `RESET` can be dispatched to change the state.
+- Observers are functions that subscribe to the store and are notified whenever the state changes.
 
-- The implementation passes all user stories, including initial state verification, incrementing, decrementing, and resetting the counter.
+### Key Features:
+- **Increment the counter** by dispatching the `ADD` action.
+- **Decrement the counter** by dispatching the `SUBTRACT` action.
+- **Reset the counter** to zero by dispatching the `RESET` action.
+- **Observer Pattern**: Functions can subscribe to the store and log the state whenever it changes.
+
+## Files in the Project
+
+### 1. `action.js`
+
+This file defines the action types and action creators that will be dispatched to the store. 
+
+- **Action Types**: `ADD`, `SUBTRACT`, `RESET`
+- **Action Creators**: Functions like `add()`, `subtract()`, and `reset()` return actions that describe the change to be made to the state.
+
+### 2. `reducer.js`
+
+This file contains the `counterReducer`, which takes the current state and an action, and returns a new state based on the action type.
+
+### 3. `store.js`
+
+The store holds the state and has three key methods:
+- `getState()`: Returns the current state.
+- `dispatch(action)`: Updates the state based on the action.
+- `subscribe(observer)`: Allows functions to "subscribe" to the store and be notified of state changes.
+
+### 4. `index.js`
+
+This is the entry point where everything is tied together. It:
+- Creates the store.
+- Subscribes an observer function that logs the state to the console.
+- Dispatches actions to change the state.
+
+## How to Run the Code
+
+1. **Download or clone the project** to your local machine.
+
+2. **Navigate to the project folder** run the html document in a live server.
+
 
 ## Conclusion
 
