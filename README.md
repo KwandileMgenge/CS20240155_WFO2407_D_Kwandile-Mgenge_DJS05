@@ -2,12 +2,6 @@
 
 This project implements a Redux-inspired store to manage the state of a tally counter app. The store handles actions like `ADD`, `SUBTRACT`, and `RESET` and logs state changes to the console.
 
-## How to Run
-
-1. Clone the repository.
-2. Open `index.js` in your favorite JavaScript environment (e.g., Node.js, browser console).
-3. The state changes will be logged to the console as actions are dispatched.
-
 ## Approach
 
 - I created a simple store that holds the count in the state.
